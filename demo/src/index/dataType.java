@@ -34,6 +34,5 @@ public class dataType {
          */
         boolean bool_ean = false;
         System.out.println(bool_ean);
-
     }
 }
