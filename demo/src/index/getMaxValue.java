@@ -2,7 +2,7 @@ package index;
 
 import java.util.Scanner;
 
-public class getMax {
+public class getMaxValue {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

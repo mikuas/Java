@@ -2,7 +2,7 @@ package index;
 
 import java.util.Scanner;
 
-public class ifStatement {
+public class ifStatementDemo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();

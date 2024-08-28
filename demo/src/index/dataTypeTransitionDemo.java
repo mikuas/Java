@@ -1,8 +1,6 @@
 package index;
 
-import java.util.Scanner;
-
-public class dataTypeTransition {
+public class dataTypeTransitionDemo {
     public static void main(String[] args) {
         double number = 11.99;
         int a = (int) number;
