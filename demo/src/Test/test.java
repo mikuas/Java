@@ -11,8 +11,8 @@ public class test {
 //        System.out.println(arr2[0]);
     }
 
-    public static int getSum(int num1, int num2) {
-        int result = num1 + num2;
-        return result;
-    }
+//    public static int getSum(int num1, int num2) {
+//        int result = num1 + num2;
+//        return result;
+//    }
 }
