@@ -96,6 +96,50 @@ public class item {
 > 
 > double > float > long > int > short> byte
 
+#### 基本数据类型和引用数据类型
+##### 1. 基本数类型
+* 整数类型
+* 浮点数数据类型
+* 布尔类型
+* 字符类型
+>变量中存储的是真实的数据
+>
+> 数据值是存储在自己的空间中
+> 
+> 特点: 赋值给其他变量,也是赋的真实的值
+~~~java
+public static void main(String[] args) {
+    int number = 100;
+   System.out.println(number); // 100
+   change(number);
+   System.out.println(number); // 100
+}
+// 传递基本数据类型时, 传递的是真实的数据类型, 形参的改变, 不影响实际参数的值
+public static void change(int number) {
+    number = 200;
+}
+
+~~~
+##### 2. 引用数据类型
+除了以上的全部都是
+> 变量中存储的是地址值 引用: 使用了其他空间中的数据 (new)
+> 
+> 数据值是存储在其他空间中,自己空间中存储的是地址值
+> 
+> 特点: 赋值给其他变量,赋的是地址值
+~~~java
+public static void main(String[] args) {
+    int[] array = {10, 50, 60};
+   System.out.println(array[0]); // 10
+   change(array);
+   System.out.println(array[0]); // 1145
+}
+// 传递引用数据类型时, 传递的是地址值, 形参的改变, 影响实际参数的值
+public static void change(int[] array) {
+    array[0] = 1145;
+}
+
+~~~
 ![img.png](img.png)
 
 ### 标识符
@@ -507,7 +551,13 @@ public static 返回值类型 methodName(args) {
 }
 
 // 方法调用 必须先定义在调用
-methodName();
+methodName(); 
+/*
+        方法的内存
+ */
+// 方法调用的基本原理 -> 方法 进栈执行 先进后出
+
+
 ~~~
 
 ### 方法的重载
