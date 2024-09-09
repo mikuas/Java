@@ -15,7 +15,7 @@ public class test5 {
 //                break;
 //            } else if (number % 1 == 0 && number % number == 0 && number % 2 != 0) {
 //                System.out.println(number + "是一个质数");
-//                break;
+//                break;1
 //            } else {
 //                System.out.println(number + "不是一个质数");
 //                break;
@@ -31,7 +31,7 @@ public class test5 {
         if (flag) {
             System.out.println(number + "是一个质数");
         } else {
-            System.out.println(number + "不是一直");
+            System.out.println(number + "不是一个质数");
         }
         /*
             int number = 81
