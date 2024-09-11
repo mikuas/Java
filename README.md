@@ -642,4 +642,39 @@ public class Phone {
 ~~~
 #### 对象的成员变量的默认规则
 
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>明细</th>
+<th>默认值</th>
+</tr>
+<tr>
+<td rowspan="4">基本类型</td>
+</tr>
+<td>byte,short,int,long</td>
+<td>0</td>
+<tr>
+<td>float,double</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>引用类型</td>
+<td>类,接口,数组,String</td>
+<td>null</td>
+</tr>
+</thead>
+</table>
+
+### 封装
+>对象代表什么,就得封装对应的数据,并提供数据对应的行为
+
+### private关键字
+* 是一个权限修饰符
+* 可以修饰成员(成员变量和成员方法)
+* 被private修饰的成员只能在本类中才能访问
 
