@@ -2,17 +2,20 @@ package Test;
 
 public class createGirlFriend {
     public static void main(String[] args) {
-        girlFriend girlFriendOne = new girlFriend();
+        GirlFriend girlFriendOne = new GirlFriend();
 //mouse//
-        girlFriendOne.gender = "阿帕奇武装直升机";
-        girlFriendOne.height = 160;
-        girlFriendOne.name = "HuTao";
-
+        girlFriendOne.setName("HuTao");
         girlFriendOne.setAge(18);
-        System.out.println(girlFriendOne.getAge());
+        girlFriendOne.setGender("女");
+        girlFriendOne.setHeight(160.5);
 
-        girlFriendOne.playGame("Me");
-        girlFriendOne.qiaFan("Me");
-        girlFriendOne.getInfo();
+        System.out.println(girlFriendOne.getName());
+        System.out.println(girlFriendOne.getAge());
+        System.out.println(girlFriendOne.getGender());
+        System.out.println(girlFriendOne.getHeight());
+
+        girlFriendOne.playGame();
+        girlFriendOne.eat();
+        girlFriendOne.sleep();
     }
 }
