@@ -18,26 +18,36 @@ public class User {
         this.email = email;
         this.gender = gender;
     }
+
+    public User getThis() {
+        System.out.println(this);
+        return this;
+    }
     //快捷键 alt + insert
 
-    public void setUserName(String userName) {
+    public User setUserName(String userName) {
         this.userName = userName;
+        return this;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
     }
 
-    public void setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
+        return this;
     }
 
-    public void setGender(String gender) {
+    public User setGender(String gender) {
         this.gender = gender;
+        return this;
     }
 
-    public void setAge(int age) {
+    public User setAge(int age) {
         this.age = age;
+        return this;
     }
 
     /////////////////////////
