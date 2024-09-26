@@ -1,7 +1,5 @@
 package index;
 
-import caseDemo.method;
-
 public class twoDimensionArrayDemo {
     public static void main(String[] args) {
         int[][] arr = {

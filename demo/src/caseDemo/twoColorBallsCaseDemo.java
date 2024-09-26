@@ -1,5 +1,7 @@
 package caseDemo;
 
+import index.method;
+
 import java.util.Random;
 import java.util.Scanner;
 // ctrl + alt + t

@@ -1,9 +1,6 @@
-package caseDemo;
+package index;
 
 public class method {
-    public static void main(String[] args) {
-
-    }
 
     public static boolean contains(int[] array, int element) {
         for (int i : array) {

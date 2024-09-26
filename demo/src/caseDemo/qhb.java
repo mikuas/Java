@@ -1,5 +1,7 @@
 package caseDemo;
 
+import index.method;
+
 import java.util.Random;
 
 public class qhb {
