@@ -54,7 +54,6 @@ public class studentTest {
     }
 
     // 判断id是否存在 存在删除
-
     public static void deleteTheArrayById(Student[] array, String id) {
         boolean flag = true;
         for (Student student : array) {
