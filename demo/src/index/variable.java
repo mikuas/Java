@@ -1,5 +1,7 @@
 package index;
 
+import java.util.Scanner;
+
 public class variable {
     public static void main(String[] args) {
         int a = 114514;
@@ -12,6 +14,34 @@ public class variable {
         System.out.println(bit);
 
 
+    }
+
+    public static class countString {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("请输入字符: ");
+            String str = sc.next();
+            countStrings(str);
+        }
+
+        public static void countStrings(String str) {
+            int bigLetters = 0;
+            int smallLetters = 0;
+            int number = 0;
+            for (int i = 0; i < str.length(); i++) {
+                char result = str.charAt(i);
+                if (result >= 'A' && result <= 'Z') {
+                    bigLetters++;
+                } else if (result >= 'a' && result <= 'z') {
+                    smallLetters++;
+                } else if (result >= '0' && result <= '9') {
+                    number++;
+                }
+            }
+            System.out.println("大写字母: " + bigLetters + " 个");
+            System.out.println("小写字母: " + smallLetters + " 个");
+            System.out.println("数字: " + number + " 个");
+        }
     }
 }
 

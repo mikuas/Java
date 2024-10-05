@@ -719,6 +719,81 @@ public class Student {
    * 提供每一个成员变量对应的setXxx()/getXxx()
    * 如果还有其他行为,也需要写上
 
+-----
+
+## 创建String对象的两种方式
+~~~java
+// 直接赋值 进字符串池
+String name = "Hello World";
+// new 构造方法 进堆
+public String(); // 创建空白字符串,不含任何内容
+public String(String original); // 根据传入的字符串,创建字符串对象
+public String(char[] chs); // 根据字符数组,创建字符串对象
+public String(byte[] byt); // 根据字节数组,创建字符串对象
+
+~~~
+
+## 字符串的比较
+~~~java
+String s1 = "abc";
+String s2 = new String("abc");
+System.out.println(s1 == s2); // 输出false
+// ==
+/*
+基本数据类型 比较的是具体的值
+引用数据类型 比较的是内存地址
+*/
+boolean equals方法(要比较的字符串) 完全一样结果true
+boolean equalslgnoreCase(要比较的字符串) 忽略大小写的比较
+~~~
+## 截取字符串
+~~~java
+String substring(int beginIndex, int endIndex) // 截取 包头不包尾
+String substring(int beginIndex) // 截取到末尾
+~~~
+## 替换字符
+~~~java
+String replace(旧值, 新值) // 替换
+~~~
+### StringBuilder
+> StringBuilder可以看作一个容器,创建之后里面的内容是可变的
+> 打印对象是属性值不是地址值
+~~~java
+StringBuilder构造方法
+public StringBuilder() // 创建一个空白可变的字符串对象,不含有任何内容
+public StringBuilder(String str) // 根据字符串的内容,来创建可变字符串
+// 方法
+append(任意类型) // 添加数据
+reverse()       // 反转容器中的内容
+length()        // 返回长度
+toString()      // 把StringBuilder转为String
+~~~
+### StringJoiner
+> StringJoiner和StringBuilder可以看作一个容器,创建之后里面的内容是可变的
+~~~java
+StringJoiner(间隔符号) // 创建一个StringJoiner对象,指定拼接的间隔符号
+StringJoiner(间隔符号, 开始符号, 结束符号) // 创建一个StringJoiner对象, 指定拼接的间隔符号, 开始符号, 结束符号
+// 方法
+add(添加的内容)  // 添加数据
+length()        // 返回长度
+toString()      // 返回一个字符串, 拼接之后的值
+~~~
+### 字符串底层原理
+#### 存储的内存原理
+>* 直接赋值会复用字符串常量池中的
+>* new出来的不会复用,而是开辟一个新的空间
+#### ==比较的是什么
+>* 基本数据类型比较数据值
+>* 引用数据类型比较地址值
+#### 字符串拼接的底层原理
+>* 如果没有变量参加,都是字符串直接相加,编译之后就是拼接之后的结果,会复用串池中的字符串
+>* 如果有变量参加,会创建新的字符串,浪费内存
+#### StringBuilder提高效率的原理
+>* 所有要拼接的内容都会往StringBuilder中放,不会创建很多无用的空间,节约内存
+>* 默认创建一个长度为16的字节数组
+>* 添加的内容长度小于16,直接存
+>* 添加的内容大于16会扩容(原来的容量*2+2)
+>* 如果扩容的长度还不够,以实际的长度为准
 
 
 
