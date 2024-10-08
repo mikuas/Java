@@ -2,15 +2,22 @@ package index;
 
 public class StringDemo4 {
     public static void main(String[] args) {
-        String strA = "Hello World";
-        String strB = "dlroW olleH";
+        String strA = "HelloWorld";
+        String strB = "lloWorldHe";
+        System.out.println(check(strA, strB));
+    }
 
-        System.out.println(strA);
+    public static boolean check(String strA, String strB) {
+        for (int i = 0; i < strA.length(); i++) {
+            strA = moveString(strA);
+            if (strA.equals(strB)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static String moveString(String str) {
-        StringBuilder sb = new StringBuilder(str);
-
-        return sb.toString();
+        return str.substring(1) + str.charAt(0);
     }
 }
