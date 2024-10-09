@@ -12,40 +12,35 @@ public class StudentManageSystem {
         password.setUserName("teacher").setPassword("114514").setIdCardNumber("1145141919810").setPhoneNumber("1919810");
         passwordList.add(password);
 
-        while (true) {
-            int result = mainPage();
-            if (result == 1) {
-                manager: if (userLogin(passwordList)) {
-                    while (true) {
-                        switch (managerPage()) {
-                            case 1 -> addStudent(studentList);
-                            case 2 -> System.out.println(delStudent(studentList));
-                            case 3 -> reviseStudent(studentList);
-                            case 4 -> queryStudentInfo(studentList);
-                            case 5 -> {
-                                System.out.println("已退出登录");
-                                break manager;
-                            } // System.exit(0); 停止虚拟机运行
-                            default -> System.out.println("没有这个选项");
+        loop: while (true) {
+            switch (mainPage()) {
+                case "1" -> {
+                    manager: if (userLogin(passwordList)) {
+                        while (true) {
+                            switch (managerPage()) {
+                                case "1" -> addStudent(studentList);
+                                case "2" -> System.out.println(delStudent(studentList));
+                                case "3" -> reviseStudent(studentList);
+                                case "4" -> queryStudentInfo(studentList);
+                                case "5" -> {
+                                    System.out.println("已退出登录");
+                                    break manager;
+                                } // System.exit(0); 停止虚拟机运行
+                                default -> System.out.println("没有这个选项");
+                            }
                         }
+                    } else {
+                        System.out.println("登录失败,用户名或密码错误");
                     }
-                } else {
-                    System.out.println("登录失败,用户名或密码错误");
                 }
-            } else if (result == 2) {
-                userRegistered(passwordList);
-            } else if (result == 3) {
-                resetPassword(passwordList);
-            } else if (result == 4) {
-                break;
-            }
-            else {
-                System.out.println("没有这个选项");
+                case "2" -> userRegistered(passwordList);
+                case "3" -> resetPassword(passwordList);
+                case "4" -> {break loop;}
+                default -> System.out.println("没有这个选项");
             }
         }
     }
-
-    public static int mainPage() {
+    public static String mainPage() {
         Scanner sc = new Scanner(System.in);
         System.out.println("欢迎来到学生管理系统");
         System.out.println("请选择操作");
@@ -53,10 +48,10 @@ public class StudentManageSystem {
         System.out.println("2: 注册");
         System.out.println("3: 忘记密码");
         System.out.println("4: 退出");
-        return sc.nextInt();
+        return sc.next();
     }
 
-    public static int managerPage() {
+    public static String managerPage() {
         Scanner sc = new Scanner(System.in);
         System.out.println("----------欢迎来到MIKU学生管理系统----------");
         System.out.println("1: 添加学生");
@@ -65,7 +60,7 @@ public class StudentManageSystem {
         System.out.println("4: 查询学生");
         System.out.println("5: 返回登录界面");
         System.out.println("请输入您的选择: ");
-        return sc.nextInt();
+        return sc.next();
     }
 
     public static boolean userLogin(ArrayList<PasswordManagerSystem> passwordList) {
@@ -103,7 +98,9 @@ public class StudentManageSystem {
                     else {
                         System.out.println("请输入手机号码: ");
                         String phone = sc.next();
-                        if (verifyPhoneNumber(phone)) {
+                        if (phone.charAt(0) == '0') {
+                            System.out.println("手机号不能以0开头");
+                        } else if (verifyPhoneNumber(phone)) {
                             user.setUserName(name).setPassword(password).setIdCardNumber(idCard).setPhoneNumber(phone);
                             passwordList.add(user);
                             System.out.println("创建成功");
