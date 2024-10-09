@@ -1,4 +1,4 @@
-package ArrayListDemo.StudentManagerSystem;
+package ArrayListDemo.StudentManager;
 
 public class Student {
     private String id;
