@@ -1,20 +1,20 @@
-package ArrayListDemo.StudentManager;
+package ArrayListDemo.StudentManagerSystem;
 
 public class Student {
     private String id;
     private String name;
     private int age;
-    private String gender;
+    private String address;
 
     public Student() {
 
     }
 
-    public Student(String id, String name, int age, String gender) {
+    public Student(String id, String name, int age, String address) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.gender = gender;
+        this.address = address;
     }
 
     public String getId() {
@@ -44,12 +44,12 @@ public class Student {
         return this;
     }
 
-    public String getGender() {
-        return gender;
+    public String getAddress() {
+        return address;
     }
 
-    public Student setGender(String gender) {
-        this.gender = gender;
+    public Student setAddress(String address) {
+        this.address = address;
         return this;
     }
 }
