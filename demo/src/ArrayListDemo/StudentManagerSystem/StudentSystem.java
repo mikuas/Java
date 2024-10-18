@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StudentSystem {
-    public static void main(String[] args) {
-        ArrayList<Student> studentList = new ArrayList<>();
-        StudentSystem system = new StudentSystem();
-        system.studentManagerPage(studentList);
-    }
+    private static final String ADD_STUDENT = "1";
+    private static final String DEL_STUDENT_BY_ID = "2";
+    private static final String REVISE_STUDENT_BY_ID = "3";
+    private static final String QUERY_STUDENT = "4";
+    private static final String EXIT_LOGIN = "5";
 
-    public void studentManagerPage(ArrayList<Student> studentList) {
+    public static void studentManagerPage(ArrayList<Student> studentList) {
         loop: while (true) {
             System.out.println("----------欢迎来到MIKU学生管理系统----------");
             System.out.println("1: 添加学生");
@@ -21,11 +21,11 @@ public class StudentSystem {
             System.out.println("请输入您的选择: ");
             Scanner sc = new Scanner(System.in);
             switch (sc.next()) {
-                case "1" -> addStudent(studentList);
-                case "2" -> delStudentById(studentList);
-                case "3" -> reviseStudentById(studentList);
-                case "4" -> queryStudent(studentList);
-                case "5" -> {break loop;}
+                case ADD_STUDENT -> addStudent(studentList);
+                case DEL_STUDENT_BY_ID -> delStudentById(studentList);
+                case REVISE_STUDENT_BY_ID -> reviseStudentById(studentList);
+                case QUERY_STUDENT -> queryStudent(studentList);
+                case EXIT_LOGIN -> {break loop;}
                 default -> System.out.println("没有这个选项");
             }
         }

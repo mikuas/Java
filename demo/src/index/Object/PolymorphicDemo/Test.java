@@ -14,6 +14,16 @@ public class Test {
         register(teacher);
         register(student);
         register(administrator);
+
+        Person p = new Teacher();
+        if (p instanceof Teacher) {
+            Teacher t = (Teacher) p;
+            t.show();
+        }
+
+        if (p instanceof Teacher t) {
+            t.show();
+        }
     }
 
     public static void register(Person P) {

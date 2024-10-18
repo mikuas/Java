@@ -7,11 +7,19 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
-        ArrayList<User> userList = new ArrayList<>();
-        ArrayList<Student> studentList = new ArrayList<>();
+    static ArrayList<User> userList = new ArrayList<>();
+    static ArrayList<Student> studentList = new ArrayList<>();
+    static {
         User user = new User("admin", "114514", "1145141919810", "1919810");
         userList.add(user);
+    }
+
+    private static final String USER_LOGIN = "1";
+    private static final String USER_REGISTERED = "2";
+    private static final String RESET_PASSWORD = "3";
+    private static final String EXIT_SYSTEM = "4";
+
+    public static void main(String[] args) {
         mainPage(userList, studentList);
     }
 
@@ -25,18 +33,17 @@ public class App {
             System.out.println("4: 退出系统");
             System.out.println("请输入您的选择: ");
             switch (sc.next()) {
-                case "1" -> {
+                case USER_LOGIN -> {
                     if (userLogin(userList)) {
                         System.out.println("登录成功");
-                        StudentSystem system = new StudentSystem();
-                        system.studentManagerPage(studentList);
+                        StudentSystem.studentManagerPage(studentList);
                     } else {
                         System.out.println("用户名或密码错误");
                     }
                 }
-                case "2" -> userRegistered(userList);
-                case "3" -> resetPassword(userList);
-                case "4" -> {
+                case USER_REGISTERED -> userRegistered(userList);
+                case RESET_PASSWORD -> resetPassword(userList);
+                case EXIT_SYSTEM -> {
                     System.exit(0);
                     System.out.println("感谢您的使用,再见!");
                 }
@@ -166,7 +173,7 @@ public class App {
             System.out.println("密码不匹配,修改失败");
         }
     }
-    
+
     public static boolean checkUserName(String userName) {
         if (userName.length() < 3 || userName.length() > 15) {
             return false;
@@ -274,3 +281,5 @@ public class App {
         return new String(chars);
     }
 }
+
+
