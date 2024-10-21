@@ -816,6 +816,7 @@ E get(int index) // 获取指定索引的元素
 int size() // 集合的长度,也就是集合中元素的个数
 ~~~
 ### 基本数据类型对应的包装类
+```java
 byte -> Byte
 
 short -> Short
@@ -831,6 +832,7 @@ float -> Float
 double -> Double
 
 boolean -> Boolean
+```
 
 ## 面向对象
 ### static
@@ -973,7 +975,86 @@ boolean -> Boolean
 | protected |   ✔   |    ✔     |    ✔    |          |
 |  public   |   ✔   |    ✔     |    ✔    |    ✔     |
 
-## abstractClasses
+## 抽象类
+* 抽取共性时,无法确定方法体,就把方法定义为抽象的
+* 强制让子类按照某种格式重写
+* 抽象方法所在的类,必须是抽象类
+### 抽象类和抽象方法的格式
+```java
+public abstract 返回值类型 方法名(参数);
+public abstract class 类名{}
+```
+### 继承抽象类
+* 要么重写抽象类中的所有方法
+* 要么是抽象类
+
+## 接口
+### 接口的定义和使用
+```java
+// 用interface关键字来定义
+public interface 接口名 {}
+// 接口不能实例化
+// 接口和类之间是实现关系,通过 implements 关键字表示
+public class 类名 implements 接口名 {}
+/*
+    接口的子类(实现类)
+    // 要么重写接口中所有抽象方法
+    // 要么是抽象类
+*/
+
+// 接口和类的实现关系,可以单实现,也可以多实现
+public class 类名 implements 接口1, 接口2 {}
+// 实现类还可以在继承一个类的同时实现多个接口
+public class 类名 extends 父类 implements 接口1, 接口2 {}
+```
+### 接口中成员的特点
+* 成员变量
+  * 只能是常量
+  * 默认修饰符: public static final
+* 构造方法
+  * 无
+* 成员方法
+  * 只能是抽象方法
+  * 默认修饰符: public abstract
+  * JDK7以前: 接口中只能定义抽象方法
+  * JDK8: 接口中可以定义有方法体的方法
+  * JDK9: 接口中可以定义私有方法
+
+### JDK8以后接口中新增的方法
+* 允许在接口中定义默认方法,需要使用关键字default修饰
+  * 作用: 解决接口升级的问题
+接口中`默认方法`的定义格式:
+```java
+public default void test() {}
+```
+* 默认方法不是抽象方法,所以不强制重写,但是如果被重写,重写的时候去掉default关键字
+* public可以省略,defaule不能
+* 如果实现多个接口,多个接口中存在相同名字的默认方法,子类就必须对该方法进行重写
+
+---
+
+* 允许在接口中定义静态方法,需要用static修饰
+接口中`静态方法`的定义格式:
+```java
+public static void test() {}
+```
+* 静态方法只能通过接口名调用,不能通过实现类名或者对象名调用
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
