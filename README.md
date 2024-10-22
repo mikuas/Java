@@ -1028,7 +1028,7 @@ public class 类名 extends 父类 implements 接口1, 接口2 {}
 public default void test() {}
 ```
 * 默认方法不是抽象方法,所以不强制重写,但是如果被重写,重写的时候去掉default关键字
-* public可以省略,defaule不能
+* public可以省略,default不能
 * 如果实现多个接口,多个接口中存在相同名字的默认方法,子类就必须对该方法进行重写
 
 ---
@@ -1039,6 +1039,135 @@ public default void test() {}
 public static void test() {}
 ```
 * 静态方法只能通过接口名调用,不能通过实现类名或者对象名调用
+
+### JDK9新增方法
+接口中私有方法的定义格式:
+```java
+// 格式1:
+private 返回值类型 方法名(参数) {}
+private void show() {}
+
+// 格式2:
+private static 返回值类型 方法名(参数) {}
+private static void method() {}
+```
+### 适配器模式
+1. 当一个接口中抽象方法过多时,但只要使用其中一部分时,就可以使用适配器模式
+2. 书写步骤:
+
+编写中间类XXXAdapter,实现对应的接口
+对接口中的抽象方法进行空实现
+让真正的实现类继承中间类,并从写需要用的方法,用abstract修饰
+
+## 内部类
+* 在A类的内部定义B类,B类就被成为内部类
+* 内部类表示的事物是外部类的一部分
+* 内部类单独出现没有任何意义
+* 内部类的访问特点
+  * 内部类可以直接访问外部类的成员,包括私有
+  * 外部类要访问内部类的成员,必须创建对象
+
+### 成员内部类
+* 写在成员位置的,属于外部类的成员
+* 成员内部类可以被一些修饰符所修饰,private,默认,protected,public,static等
+* 在成员内部类中,JDK16之前不能定义静态变量,JDK16开始才可以
+#### 创建成员内部类对象的方式
+```java
+class Outer {
+    class Inner {
+        
+    }
+}
+
+// 方式一:外部编写方法,对外提供内部类对象 内部类被private修饰
+public Inner getInstance() {
+    return new  Inner();
+}
+// 方式二:直接创建
+Outer.Inner oi = new Outer().new Inner();
+```
+
+### 静态内部类
+* 静态内部类是一种特殊的成员内部类
+#### 创建静态内部类对象的方式
+```java
+/* 创建静态内部类对象的方式 */
+// 外部类名.内部类名 对象名 = new 外部类名.内部类名();
+class Outer {
+    static class Inner {
+        public void show1() {
+            
+        }
+        
+        public static void show2() {
+            
+        }
+    }
+}
+Outer.Inner oi = new Outer.Inner();
+/* 调用非静态方法的格式 */
+// 先创建对象,对象名调用
+oi.show1();
+
+/* 调用静态方法的格式 */
+// 外部类名.内部类名.方法名();
+Outer.Inner.sho2();
+
+```
+
+### 局部内部类
+* 将内部类定义在方法里面就叫做局部嫩不类
+* 外界是无法直接使用,需要在方法内部创建对象并使用
+* 该类可以直接访问外部类的成员,也可以访问方法内的局部变量
+```java
+public class PartOuter {
+    int age = 18;
+
+    public void partClass() {
+        int a = 10;
+
+        final class Part {
+            int b = 20;
+
+            public void show() {
+                System.out.println(a + b);
+                System.out.println("局部内部类");
+                System.out.println(age);
+            }
+
+            public static void method() {
+            }
+
+        }
+        // 创建局部内部类的对象
+        Part p = new Part();
+        p.show();
+    }
+}
+```
+
+### 匿名内部类
+* 隐藏了名字的内部类,可以写在成员位置,也可以写在局部位置
+```java
+new 类名或接口名() {
+    
+}
+
+public interface Swim {
+    public abstract void swim();
+}
+
+// 匿名内部类
+new Swim() {
+    @Override
+    public void swim() {
+        System.out.println("重写了swim方法");
+    }
+};
+
+```
+  
+
 
 
 
